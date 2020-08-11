@@ -41,13 +41,25 @@ az keyvault secret set --vault-name "$kvName" -n "$kvSecretName" --value "$kvSec
 az keyvault set-policy -n "$kvName" --object-id "$vmObjectId" --secret-permissions get list
 
 $vmIp = az vm show -n "$vmName" -d --query ("publicIps")
+<<<<<<< HEAD
 
 az vm run-command invoke -g "$rgName" -n "$vmName" --command-id RunShellScript --scripts @vm-configuration-scripts/1configure-vm.sh
 
 az vm run-command invoke -g "$rgName" -n "$vmName" --command-id RunShellScript --scripts @vm-configuration-scripts/2configure-ssl.sh
 
+=======
+
+az vm run-command invoke -g "$rgName" -n "$vmName" --command-id RunShellScript --scripts @vm-configuration-scripts/1configure-vm.sh
+
+az vm run-command invoke -g "$rgName" -n "$vmName" --command-id RunShellScript --scripts @vm-configuration-scripts/2configure-ssl.sh
+
+>>>>>>> a0be044b29ac3935921b6642dbaf92c5dcb91fe1
 az vm run-command invoke -g "$rgName" -n "$vmName" --command-id RunShellScript --scripts @deliver-deploy.sh
 
 
 # TODO: print VM public IP address to STDOUT or save it as a file
 $vmIp
+<<<<<<< HEAD
+=======
+
+>>>>>>> a0be044b29ac3935921b6642dbaf92c5dcb91fe1
